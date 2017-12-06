@@ -18,6 +18,7 @@ class CreateExpensesTable extends Migration
             $table->text('observacion');
             $table->decimal('monto');
             $table->dateTime('fecha');
+            $table->integer('user_id')->unsigned();
             $table->timestamps();
         });
     }

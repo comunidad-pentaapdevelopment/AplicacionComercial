@@ -18,6 +18,7 @@ class CreateOperationsTable extends Migration
             $table->string('tipoOperacion');
             $table->integer('product_id')->unsigned();
             $table->integer('cantidad');
+            $table->integer('user_id')->unsigned();
             $table->timestamps();
         });
     }
