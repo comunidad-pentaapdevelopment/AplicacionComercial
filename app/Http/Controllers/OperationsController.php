@@ -2,17 +2,18 @@
 
 namespace App\Http\Controllers;
 
-use App\Expense;
 use Illuminate\Http\Request;
-use DB;
 
-class ExpensesController extends Controller
+class OperationsController extends Controller
 {
-     public function index()
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function index()
     {
-        $gastos = Expense::all();
-
-        return view('gasto.index',compact('gastos'));
+        //
     }
 
     /**
@@ -22,7 +23,7 @@ class ExpensesController extends Controller
      */
     public function create()
     {
-        return view('gasto.create');
+        //
     }
 
     /**
@@ -33,24 +34,7 @@ class ExpensesController extends Controller
      */
     public function store(Request $request)
     {
-
-       Expense::create([
-        'observacion' => request('observacion'),
-        'monto' => request('monto'),
-        'user_id' => '1'
-        ]);
-
-       /* $gasto = Expense::create($request->all());
-
-        $gasto->user_id='1';
-        $gasto->save();
-        */
-
-
-        //Expense::create($request->all());
-        
-
-        return redirect()->route('gasto.create')->with('info','Gasto almacenado Correctamente');
+        //
     }
 
     /**
@@ -61,8 +45,7 @@ class ExpensesController extends Controller
      */
     public function show($id)
     {
-        $gasto=Expense::findOrFail($id);
-        return view('gasto.show',compact('gasto'));
+        //
     }
 
     /**
@@ -73,9 +56,7 @@ class ExpensesController extends Controller
      */
     public function edit($id)
     {
-
-        $gasto=Expense::findOrFail($id);
-        return view('gasto.edit',compact('gasto'));
+        //
     }
 
     /**
@@ -87,9 +68,7 @@ class ExpensesController extends Controller
      */
     public function update(Request $request, $id)
     {
-        
-        Expense::findOrFail($id)->update($request->all());
-            return redirect()->route('gasto.index');
+        //
     }
 
     /**
@@ -100,7 +79,6 @@ class ExpensesController extends Controller
      */
     public function destroy($id)
     {
-        Expense::findOrFail($id)->delete();
-            return redirect()->route('gasto.index');
+        //
     }
 }

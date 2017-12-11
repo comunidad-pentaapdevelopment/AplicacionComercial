@@ -1,18 +1,22 @@
 <?php
 
 namespace App\Http\Controllers;
-
-use App\Expense;
-use Illuminate\Http\Request;
+use App\Provider;
 use DB;
+use Carbon\Carbon;
+use Illuminate\Http\Request;
 
-class ExpensesController extends Controller
+class ProvidersController extends Controller
 {
-     public function index()
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function index()
     {
-        $gastos = Expense::all();
-
-        return view('gasto.index',compact('gastos'));
+        $proveedores=Provider::all();
+        return view('proveedor.index',compact('proveedores'));
     }
 
     /**
@@ -22,7 +26,7 @@ class ExpensesController extends Controller
      */
     public function create()
     {
-        return view('gasto.create');
+        return view('proveedor.create');
     }
 
     /**
@@ -33,24 +37,8 @@ class ExpensesController extends Controller
      */
     public function store(Request $request)
     {
-
-       Expense::create([
-        'observacion' => request('observacion'),
-        'monto' => request('monto'),
-        'user_id' => '1'
-        ]);
-
-       /* $gasto = Expense::create($request->all());
-
-        $gasto->user_id='1';
-        $gasto->save();
-        */
-
-
-        //Expense::create($request->all());
-        
-
-        return redirect()->route('gasto.create')->with('info','Gasto almacenado Correctamente');
+        Provider::create($request->all());
+        return redirect()->route('proveedor.create')->with('info','Proveedor almacenado Correctamente');
     }
 
     /**
@@ -61,8 +49,8 @@ class ExpensesController extends Controller
      */
     public function show($id)
     {
-        $gasto=Expense::findOrFail($id);
-        return view('gasto.show',compact('gasto'));
+        $proveedor=Provider::findOrFail($id);
+        return view('proveedor.show',compact('proveedor'));      
     }
 
     /**
@@ -74,8 +62,8 @@ class ExpensesController extends Controller
     public function edit($id)
     {
 
-        $gasto=Expense::findOrFail($id);
-        return view('gasto.edit',compact('gasto'));
+        $proveedor=Provider::findOrFail($id);
+        return view('proveedor.edit',compact('proveedor'));
     }
 
     /**
@@ -87,9 +75,8 @@ class ExpensesController extends Controller
      */
     public function update(Request $request, $id)
     {
-        
-        Expense::findOrFail($id)->update($request->all());
-            return redirect()->route('gasto.index');
+        Provider::findOrFail($id)->update($request->all());
+         return redirect()->route('proveedor.index');
     }
 
     /**
@@ -100,7 +87,8 @@ class ExpensesController extends Controller
      */
     public function destroy($id)
     {
-        Expense::findOrFail($id)->delete();
-            return redirect()->route('gasto.index');
+     
+        Provider::finOrFail($id)->delete();
+          return redirect()->route('proveedor.index');
     }
 }
