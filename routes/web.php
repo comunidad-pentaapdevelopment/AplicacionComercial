@@ -15,6 +15,7 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
 Route::resource('producto', 'ProductsController');
 Route::resource('empresa', 'CompaniesController');
 Route::resource('categoria', 'CategoriesController');

@@ -6,5 +6,5 @@ use Illuminate\Database\Eloquent\Model;
 
 class Expense extends Model
 {
-    protected $fillable=['observacion','monto','fecha','user_id'];
+    protected $fillable=['observacion','monto', 'user_id'];
 }
