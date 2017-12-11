@@ -1,7 +1,8 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Operation;
+use DB;
 use Illuminate\Http\Request;
 
 class OperationsController extends Controller
@@ -13,7 +14,10 @@ class OperationsController extends Controller
      */
     public function index()
     {
-        //
+    
+     $operaciones=Operation::all();
+     return view('operacion.index',compact('operaciones'));
+    
     }
 
     /**
@@ -23,7 +27,7 @@ class OperationsController extends Controller
      */
     public function create()
     {
-        //
+      return view('operacion.create');
     }
 
     /**
@@ -34,7 +38,8 @@ class OperationsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Operation::create($request->all());
+        return redirect()->route('operacion.create')->with('info','Operacion Cargada Correctamente');
     }
 
     /**
@@ -45,7 +50,7 @@ class OperationsController extends Controller
      */
     public function show($id)
     {
-        //
+        
     }
 
     /**
