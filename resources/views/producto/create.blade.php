@@ -3,7 +3,7 @@
 @if(session()->has('info'))
 <h3>{{session('info')}}</h3>
 @else
-<form method="POST" action="{{url('producto')}}">
+<form method="POST" action="{{ route('producto.store') }}">
 	{{csrf_field()}}
 <label for="descripcion">
 	Descripción:

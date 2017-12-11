@@ -18,4 +18,3 @@ Route::resource('producto', 'ProductsController');
 Route::resource('empresa', 'CompaniesController');
 Route::resource('gasto', 'ExpensesController');
 Route::resource('categoria', 'CategoriesController');
-Route::resource('gasto', 'ExpensesController');

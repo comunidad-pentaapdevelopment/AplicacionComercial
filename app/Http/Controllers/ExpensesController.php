@@ -1,15 +1,17 @@
 <?php
 
 namespace App\Http\Controllers;
+
 use App\Expense;
 use Illuminate\Http\Request;
 use DB;
-use Carbon\Carbon;
+
 class ExpensesController extends Controller
 {
      public function index()
     {
-        $gastos=Expense::all();
+        $gastos = Expense::all();
+
         return view('gasto.index',compact('gastos'));
     }
 
@@ -31,10 +33,18 @@ class ExpensesController extends Controller
      */
     public function store(Request $request)
     {
-        $gasto=Expense::create($request->all());
-        $gasto->fecha=Carbon::now();
+       Expense::create([
+        'observacion' => request('observacion'),
+        'monto' => request('monto'),
+        'user_id' => '1'
+        ]);
+
+       /* $gasto = Expense::create($request->all());
+
         $gasto->user_id='1';
         $gasto->save();
+        */
+
         return redirect()->route('gasto.create')->with('info','Gasto almacenado Correctamente');
     }
 

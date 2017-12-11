@@ -33,7 +33,7 @@
 				{{$gasto->monto}}
 			</td>
 			<td>
-				{{$gasto->fecha}}
+				{{$gasto->created_at}}
 			</td>
 			<td>
 				{{$gasto->user_id}}
