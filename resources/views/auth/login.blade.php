@@ -20,7 +20,7 @@
 			{!!csrf_field()!!}
 			<input type="email" name="email" placeholder="Email">
 			<input type="password" name="password" placeholder="Password">
-			<input type="submit" id="login-button" value="Login">
+			<input type="submit" value="Login">
 		</form>
 	</div>
 	
@@ -35,34 +35,6 @@
 		<li></li>
 		<li></li>
 		<li></li>
-		<li></li>
-		<li></li>
-		<li></li>
-		<li></li>
-		<li></li>
-		<li></li>
-		<li></li>
-		<li></li>
-		<li></li>
-		<li></li>
-		<li></li>
-		<li></li>
-		<li></li>
-		<li></li>
-		<li></li>
-		<li></li>
-		<li></li>
-		<li></li>
-		<li></li>
-		<li></li>
-		<li></li>
-		<li></li>
-		<li></li>
-		<li></li>
-		<li></li>
-		<li></li>
-		<li></li>
-
 	</ul>
 </div>
   <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
