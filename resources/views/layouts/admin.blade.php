@@ -47,30 +47,20 @@
               <!-- Messages: style can be found in dropdown.less-->
               
               <!-- User Account: style can be found in dropdown.less -->
-              <li class="dropdown user user-menu">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                  <small class="bg-red">Online</small>
-                  <span class="hidden-xs">{{ Auth::user()->name }}</span>
-                </a>
-                <ul class="dropdown-menu">
-                  <!-- User image -->
-                  <li class="user-header">
-                    
-                    <p>
-                      www.incanatoit.com - Desarrollando Software
-                      <small>www.youtube.com/jcarlosad7</small>
-                    </p>
+              <ul class="nav navbar-nav navbar-right">
+                @if(Auth::Guest())
+                  <li class="{{ activeMenu('login') }}">
+                    <a href="/login">Login</a>
                   </li>
-                  
-                  <!-- Menu Footer-->
-                  <li class="user-footer">
-                    
-                    <div class="pull-right">
-                      <a href="{{url('/logout')}}" class="btn btn-default btn-flat">Cerrar</a>
-                    </div>
-                  </li>
-                </ul>
-              </li>
+                @else
+                  <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Hola, {{ Auth::user()->name }} <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                      <li><a href="/logout">Cerrar sesion</a></li>
+                    </ul>
+                 </li> 
+                @endif
+            </ul>
               
             </ul>
           </div>
@@ -93,7 +83,7 @@
                 <br>
                 <li><a href="{{ route('categoria.index') }}"><i class="fa fa-filter" aria-hidden="true"></i>Categoria</a></li>
                 <br>
-                <li><a href="{{ route('gasto.index') }}"><i class="fa fa-filter" aria-hidden="true"></i>Gastos</a></li>                
+                <li><a href="{{ route('gasto.index') }}"><i class="glyphicon glyphicon-usd" aria-hidden="true"></i>Gastos</a></li>                
               </ul>                  
           </ul>
         </section>
@@ -116,11 +106,6 @@
               <div class="box">
                 <div class="box-header with-border">
                   <h3 class="box-title">Tukis</h3>
-                  <div class="box-tools pull-right">
-                    <button class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
-                    
-                    <button class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
-                  </div>
                 </div>
                 <!-- /.box-header -->
                 <div class="box-body">
@@ -143,6 +128,9 @@
       </div><!-- /.content-wrapper -->
       <!--Fin-Contenido-->
       <footer class="main-footer">
+        <div class="pull-left hidden-xs">
+          <b>DEWEP</b> 
+        </div>
         <div class="pull-right hidden-xs">
           <b>Version</b> 2.3.0
         </div>

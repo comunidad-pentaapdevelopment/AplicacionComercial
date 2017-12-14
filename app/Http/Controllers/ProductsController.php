@@ -4,12 +4,17 @@ namespace App\Http\Controllers;
 
 use App\Product;
 use Illuminate\Http\Request;
-use DB;
 use App\Http\Requests;
 use App\Http\Requests\CreateProductRequest;
 
 class ProductsController extends Controller
 {
+
+    public function __construct()
+    {  
+        $this->middleware('auth');
+    }
+
     /**
      * Display a listing of the resource.
      *

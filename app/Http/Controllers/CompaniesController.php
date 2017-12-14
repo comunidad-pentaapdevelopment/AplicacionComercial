@@ -1,12 +1,19 @@
 <?php
 
 namespace App\Http\Controllers;
+
 use App\Company;
-use DB;
 use Illuminate\Http\Request;
-use Carbon\Carbon;
+
+
 class CompaniesController extends Controller
 {
+
+    public function __construct()
+     {
+         
+        $this->middleware('auth');
+     }
     /**
      * Display a listing of the resource.
      *

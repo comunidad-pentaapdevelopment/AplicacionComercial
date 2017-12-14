@@ -27,7 +27,7 @@
 
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('auth.login');
 });
 
 Route::resource('producto', 'ProductsController');
@@ -36,7 +36,7 @@ Route::resource('categoria', 'CategoriesController');
 Route::resource('gasto', 'ExpensesController');
 Route::resource('proveedor', 'ProvidersController');
 
-Route::get('login','Auth\LoginController@showLoginForm');
+Route::get('login', ['as' => 'login', 'uses' => 'Auth\LoginController@showLoginForm']);
 Route::post('login','Auth\LoginController@login');
 Route::get('logout','Auth\LoginController@logout');
 
