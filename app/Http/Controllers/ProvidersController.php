@@ -1,13 +1,17 @@
 <?php
 
 namespace App\Http\Controllers;
+
 use App\Provider;
-use DB;
-use Carbon\Carbon;
 use Illuminate\Http\Request;
 
 class ProvidersController extends Controller
 {
+    
+    public function __construct()
+    {  
+        $this->middleware('auth');
+    }
     /**
      * Display a listing of the resource.
      *

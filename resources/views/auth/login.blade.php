@@ -14,7 +14,7 @@
 <body>
   <div class="wrapper">
 	<div class="container">
-		<h1>Bienvenido</h1>
+		<h1><strong>Aplicación Comercial</strong></h1>
 		
 		<form class="form" method="POST" action="/login">
 			{!!csrf_field()!!}

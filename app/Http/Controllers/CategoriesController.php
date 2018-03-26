@@ -1,12 +1,17 @@
 <?php
 
 namespace App\Http\Controllers;
+
 use App\Category;
 use Illuminate\Http\Request;
-use DB;
-use Carbon\Carbon;
+
+
 class CategoriesController extends Controller
 {
+    public function __construct()
+    {  
+        $this->middleware('auth');
+    }
     /**
      * Display a listing of the resource.
      *
